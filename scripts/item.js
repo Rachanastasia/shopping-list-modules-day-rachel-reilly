@@ -4,6 +4,7 @@ function validateName(name) {
         throw new TypeError('Name must not be blank')
     };
 }
+
 function create(name) {
     return {
         id: cuid(),

@@ -44,9 +44,10 @@ const render = function () {
 };
 
 const addItemToShoppingList = function (itemName) {
+  let toPush = item.create(itemName);
   try {
     item.validateName(itemName);
-    store.items.push(item.create(itemName));
+    store.items.push(toPush);
     render();
   } catch {
     console.log(`Cannot add item: ${error.message}`)
@@ -104,6 +105,7 @@ const bindEventListeners = function () {
   store.findAndToggleChecked()
   store.findAndDelete();
   store.findAndUpdateName();
+  item.addItem();
   handleToggleFilterClick();
 };
 

@@ -2,36 +2,40 @@
 import item from './item.js'
 
 const store = {
-    items : [],
+    items: [],
     hideCheckedItems: false
 };
 
+console.log(store.items)
 
 
 
-function findById (id){
-    return store.items.find(function (item){
-        if (item.id === item){
+function findById(id) {
+    return store.items.find(function (item) {
+        if (item.id === item) {
             return item;
         }
     });
 }
 
-function addItem(name){
-    try{
+function addItem(name) {
+    let toPush = item.create(name)
+    try {
         validateName(name);
-        this.items.push(create(name));
+        store.items.push(toPush);
+
     } catch {
         console.log('Cannot add item: ');
     }
 }
 
-function findAndToggleChecked(id){
+
+function findAndToggleChecked(id) {
     this.findById(checked) = !this.findById(checked)
 }
 
-function findAndUpdateName(id, newName){
-    try{
+function findAndUpdateName(id, newName) {
+    try {
         validateName(newName);
         findById(id);
     } catch {
@@ -39,15 +43,15 @@ function findAndUpdateName(id, newName){
     }
 }
 
-function findAndDelete(id){
-    const index = this.items.findIndex(function (item){
+function findAndDelete(id) {
+    const index = this.items.findIndex(function (item) {
         item.id === id;
     })
 
     this.items.splice(index, 1);
 }
 
-export default{
+export default {
     store,
     findById,
     addItem,

@@ -2,8 +2,6 @@ import store from './store.js';
 import item from './item.js';
 import shoppingList from './shopping-list.js';
 
-
-
 function main() {
   store.addItem('bananas');
   store.addItem('apples');
