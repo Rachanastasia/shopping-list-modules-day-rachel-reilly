@@ -1,7 +1,5 @@
-const store = {
-  items: [],
-  hideCheckedItems: false
-};
+import store from './store.js';
+
 
 const generateItemElement = function (item) {
   let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
@@ -75,16 +73,21 @@ const getItemIdFromElement = function (item) {
   return $(item)
     .closest('.js-item-element')
     .data('item-id');
+    //first ancestor of selected element
 };
 
 /**
  * Responsible for deleting a list item.
  * @param {string} id 
+ * //@ refrencing another way to display
+ * //@ api method for jquery
  */
 const deleteListItem = function (id) {
   const index = store.items.findIndex(item => item.id === id);
   store.items.splice(index, 1);
 };
+
+
 
 const handleDeleteItemClicked = function () {
   // like in `handleItemCheckClicked`, we use event delegation
